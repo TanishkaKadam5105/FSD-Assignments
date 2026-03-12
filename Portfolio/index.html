@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tanishka Kadam — Student Portfolio</title>
+  <meta name="description" content="Portfolio of a computer engineering student: web & android projects, internships, skills." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fafafa; /* light background for a more approachable, student-made feel */
+      --card:#ffffff;
+      --muted:#586069;
+      --accent:#1f7aec; /* friendly blue */
+      --glass: rgba(15,23,42,0.04);
+      --radius:12px;
+      color-scheme: light;
+      color: #0f1724;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,var(--bg),#eef4ff 120%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:36px 18px;
+    }
+    .container{max-width:980px;margin:0 auto}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:grid;place-items:center;font-weight:800;color:white;font-size:18px
+    }
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(17,24,39,0.06)}
+    .intro h1{margin:0 0 6px;font-size:26px}
+    .intro p{margin:0;color:var(--muted)}
+
+    .profile{
+      display:flex;flex-direction:column;gap:12px;align-items:center;text-align:center
+    }
+    .avatar{width:130px;height:130px;border-radius:14px;background:linear-gradient(180deg,#e6f0ff,#cfe6ff);display:grid;place-items:center;font-size:36px;color:var(--accent);font-weight:700}
+    .socials{display:flex;gap:10px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--muted);font-weight:600}
+
+    main{margin-top:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    section h2{margin:0 0 10px}
+    .projects{display:grid;gap:12px}
+    .project{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:12px;background:linear-gradient(180deg,#ffffff, #fbfdff)}
+    .project .meta{color:var(--muted);font-size:13px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{padding:8px 10px;border-radius:10px;background:linear-gradient(180deg,rgba(31,122,236,0.08),rgba(15,23,42,0.02));font-weight:600;color:var(--muted)}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      main{grid-template-columns:1fr}
+    }
+
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;font-weight:700;text-decoration:none}
+    .ghost{background:transparent;border:1px solid rgba(15,23,42,0.06);color:var(--muted)}
+
+    .field{display:flex;flex-direction:column;gap:6px}
+    input,textarea{background:#fbfdff;border:1px solid rgba(15,23,42,0.04);padding:10px;border-radius:8px;color:inherit}
+    textarea{min-height:110px}
+
+    /* small handwritten-like accent to feel "student-made" */
+    .handwritten{font-family: Inter, system-ui; font-style:normal;}
+    .note{font-size:13px;color:var(--muted)}
+
+    /* project detail view */
+    .detail-view{position:fixed;inset:0;background:rgba(15,23,42,0.5);display:none;align-items:center;justify-content:center;padding:24px}
+    .detail-card{max-width:900px;width:100%;padding:20px;border-radius:14px;background:var(--card)}
+    .detail-img{width:100%;height:280px;border-radius:10px;background:#f3f6fb;display:grid;place-items:center;color:var(--muted);font-weight:700}
+
+    /* small hover pointer */
+    .clickable{cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">TK</div>
+        <div>
+          <div style="font-weight:700">Tanishka Kadam</div>
+          <div style="font-size:13px;color:var(--muted)">Computer Engineering Student • Web & Android Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" >Blog</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card intro">
+        <h1 class="handwritten">Hi! I'm <span style="color:var(--accent)">Tanishka Kadam</span></h1>
+        <p class="note">I'm a computer engineering student who enjoys building clean front‑end interfaces and Android apps. I learn fast, enjoy designing intuitive pages (Figma) and turning designs into working code.</p>
+
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+
+        <div style="margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <div class="pill">Location: Pune, India</div>
+          <div class="pill">Open to internships</div>
+          <div class="pill">Email: tanishkadam510@gmail.com</div>
+        </div>
+      </div>
+
+      <aside class="card profile">
+        <div class="avatar">TK</div>
+        <div style="font-weight:700">Tanishka Kadam</div>
+        <div style="color:var(--muted)">BTech Computer Engineering Student at Pimpri Chinchwad College Of Engineering</div>
+        <div class="socials" style="margin-top:8px">
+          <a class="pill" href="https://www.linkedin.com/in/tanishka-kadam-88ba3b284/">LinkedIn</a>
+          <a class="pill" href="https://github.com/TanishkaKadam5105">GitHub</a>
+          <a class="pill" href="https://companioncircle.blogspot.com/2025/04/companion-circle-fostering-well-being.html" >Blog</a>
+        </div>
+        <div style="margin-top:10px;color:var(--muted);font-size:13px">Eager learner • Creative front‑end ideas • Friendly collaborator</div>
+      </aside>
+    </section>
+
+    <main>
+      <section id="about" class="card">
+        <h2>About</h2>
+        <p style="color:var(--muted)">I'm a computer engineering student with practical experience in web and Android development. I love turning Figma designs into working UI and building fast, accessible front‑ends.</p>
+
+        <h3 style="margin-top:12px">Skills</h3>
+        <div class="skills">
+          <span class="skill">C</span>
+          <span class="skill">C++</span>
+          <span class="skill">Java</span>
+          <span class="skill">Kotlin (Android)</span>
+          <span class="skill">Python</span>
+          <span class="skill">PHP</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Figma</span>
+        </div>
+
+        <h3 style="margin-top:12px">What I enjoy</h3>
+        <p style="color:var(--muted)">Designing simple user flows, building responsive front‑ends, and making lightweight Android apps with attention to UX. I value clear code, readable layouts, and continuous learning.</p>
+      </section>
+
+      <section id="projects" class="card">
+        <h2>Projects</h2>
+        <div class="note" style="margin-bottom:8px">(Click any project to open a full page view with the same portfolio style.)</div>
+        <div class="projects">
+          <article class="project clickable" onclick="openProject('frontend')">
+            <div style="font-weight:700">Front‑End Project — Diploma Internship</div>
+            <div class="meta">A responsive website built during my diploma internship focused on clean UI.</div>
+            <div style="color:var(--muted);font-size:14px">Technologies: HTML, CSS, JavaScript</div>
+          </article>
+
+          <article class="project clickable" onclick="openProject('android')">
+            <div style="font-weight:700">Android App — Degree Internship</div>
+            <div class="meta">Designed screens in Figma and developed a fully working Android app in Kotlin as part of my degree internship.</div>
+            <div style="color:var(--muted);font-size:14px">Technologies: Figma (design), Kotlin, Android Studio</div>
+          </article>
+
+          <article class="project clickable" onclick="openProject('companion')">
+            <div style="font-weight:700">Companion Circle — Community Engagement Project</div>
+            <div class="meta">Degree (2nd year) project: a web app to help elder people communicate and form support circles. I built the frontend and basic backend for messaging and profiles.</div>
+            <div style="color:var(--muted);font-size:14px">Technologies: HTML/CSS, JS.</div>
+          </article>
+
+          
+        </div>
+      </section>
+
+      <section id="experience" class="card">
+        <h2>Experience & Internships</h2>
+        <div class="project">
+          <div style="font-weight:700">Diploma Internship — Web Development</div>
+          <div class="meta">Worked on front‑end pages, form integration, and small backend tasks. Gained hands‑on experience deploying a simple site and connecting it to a MySQL database.</div>
+        </div>
+        <div style="height:10px"></div>
+        <div class="project">
+          <div style="font-weight:700">Degree Internship — Android App Development</div>
+          <div class="meta">Designed app screens in Figma and implemented them in Kotlin. Delivered a functioning APK and learned about Android lifecycle, fragments, and material components.</div>
+        </div>
+        <div style="height:10px"></div>
+        <div class="project">
+          <div style="font-weight:700">Companion Circle — Community Engagement Project (2nd Year)</div>
+          <div class="meta">Built a website prototype to help elder people communicate and form support groups. I handled the UI, basic messaging flow and the database prototype.</div>
+        </div>
+      </section>
+    </main>
+
+   <section id="contact" class="card" style="margin-top:16px">
+  <h2>Contact</h2>
+  <p style="color:var(--muted)">Thanks for visiting! you can reach me via the following:</p>
+
+  <div style="display:grid;gap:8px;margin-top:10px">
+    <div><strong>Name:</strong> Tanishka Kadam</div>
+    <div><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tanishka-kadam-88ba3b284/" target="_blank" style="color:var(--accent)">linkedin.com/in/tanishka-kadam-88ba3b284</a></div>
+    <div><strong>GitHub:</strong> <a href="https://github.com/TanishkaKadam5105" target="_blank" style="color:var(--accent)">github.com/TanishkaKadam5105</a></div>
+    <div><strong>Blog:</strong> <a href="https://companioncircle.blogspot.com/2025/04/companion-circle-fostering-well-being.html" target="_blank" style="color:var(--accent)">Companion Circle</a></div>
+  </div>
+
+  <p style="margin-top:12px;color:var(--muted)">I welcome internship opportunities and friendly collaborations, feel free to reach out.</p>
+</section>
+
+
+
+    <footer>
+      <div style="margin-top:18px">© <span id="year"></span> Your Name — Student Portfolio • <a href="#" id="blogFooter" style="color:var(--accent)">Blog</a></div>
+    </footer>
+  </div>
+
+  <!-- project detail overlay (acts like a project page) -->
+  <div id="detailView" class="detail-view" onclick="closeProject(event)">
+    <div class="detail-card" onclick="event.stopPropagation()">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div style="font-weight:700;font-size:18px" id="detailTitle">Project Title</div>
+        <div><button class="btn ghost" onclick="closeProject()">Back</button></div>
+      </div>
+      <div class="detail-img" id="detailImage">Project image</div>
+      <div style="margin-top:12px;color:var(--muted)" id="detailDesc">Project description goes here.</div>
+      <div style="margin-top:12px;font-size:14px;color:var(--muted)" id="detailTech">Technologies: —</div>
+      <div style="margin-top:12px">
+        <a id="detailDemo" href="#" target="_blank" class="btn" style="margin-right:8px">Live / Demo</a>
+        <a id="detailRepo" href="#" target="_blank" class="btn ghost">Source / APK</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Replace these with your actual links when ready
+    const PROJECTS = {
+      frontend: {
+        title: 'Front‑End Project — Diploma Internship',
+        img: 'images/Freshmart.png',
+        desc: 'A responsive website built during my diploma internship focused on clean UI. I implemented layouts, forms and client-side validation.',
+        tech: 'HTML, CSS, JavaScript',
+        demo: "Freshmart.png",
+        repo: 'https://github.com/TanishkaKadam5105/FreshMart-UI'
+      },
+      android: {
+        title: 'Android App — Degree Internship',
+        img: 'images/AndroidApp.jpeg',
+        desc: 'Designed screens in Figma and developed a fully working Android app in Kotlin. Implemented navigation, fragments and material UI components.',
+        tech: 'Figma, Kotlin, Android Studio',
+        demo: 'images/AndroidApp.jpeg',
+        repo: '#'
+      },
+      companion: {
+        title: 'Companion Circle — Community Engagement Project',
+        img: 'images/CompanionCircle.png',
+        desc: 'A web app built as a 2nd year community engagement project to help elder people communicate. I built the UI, basic messaging flow and a prototype backend to store profiles and messages.',
+        tech: 'HTML/CSS, JavaScript, PHP, MySQL',
+        demo: 'images/MergeCC.png',
+        repo: 'https://github.com/TanishkaKadam5105/CompanionCircle'
+      },
+      
+    };
+
+    function openProject(id){
+  const p = PROJECTS[id];
+  if(!p) return;
+  document.getElementById('detailTitle').textContent = p.title;
+
+  // <-- NEW: render image if p.img exists, otherwise fallback to text
+  const imgContainer = document.getElementById('detailImage');
+  if (p.img) {
+    imgContainer.innerHTML = `<img src="${p.img}" alt="${p.title}" style="width:100%;height:280px;object-fit:cover;border-radius:10px">`;
+  } else {
+    imgContainer.textContent = p.imgText || 'Project image';
+  }
+
+  document.getElementById('detailDesc').textContent = p.desc;
+  document.getElementById('detailTech').textContent = 'Technologies: ' + p.tech;
+  document.getElementById('detailDemo').href = p.demo;
+  document.getElementById('detailRepo').href = p.repo;
+  document.getElementById('detailView').style.display = 'flex';
+  // push state so browser back button works
+  history.pushState({project:id}, p.title, '#project-' + id);
+}
+
+
+    function closeProject(e){
+  if(e && e.type === 'click' && e.target !== document.getElementById('detailView')) return;
+  document.getElementById('detailView').style.display = 'none';
+  if (location.hash.startsWith('#project-')) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+}
+
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      alert('Thanks ' + (name||'there') + '! I will get back to you soon. (Demo form — not sending emails.)');
+      e.target.reset();
+    }
+
+    // small hookup for blog links — replace with real URL
+    const BLOG_URL = '#'; // <-- put your blog URL here
+    document.getElementById('blogUrl').href = BLOG_URL;
+    document.getElementById('blogFooter').href = BLOG_URL;
+    document.getElementById('blogLink').href = BLOG_URL;
+    document.getElementById('blogPill').href = BLOG_URL;
+
+    // If user loads a project hash directly, open it
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if(location.hash.startsWith('#project-')){
+        const id = location.hash.replace('#project-','');
+        if(PROJECTS[id]) openProject(id);
+      }
+    });
+  </script>
+</body>
+</html>
