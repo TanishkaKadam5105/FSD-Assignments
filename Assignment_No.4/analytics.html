@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Analytics</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="student.html">Students</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+
+        <div class="header">
+            <h1>Analytics</h1>
+            <button class="back-btn" onclick="window.location.href='index.html'">Back</button> 
+        </div>
+
+        <div class="charts">
+
+            <div class="chart-box">
+                <h3>Weekly Performance</h3>
+                <canvas id="chart1"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3>Attendance Trend</h3>
+                <canvas id="chart2"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+new Chart(document.getElementById("chart1"), {
+    type: 'line',
+    data: {
+        labels: ["Mon","Tue","Wed","Thu","Fri"],
+        datasets: [{
+            label: "Weekly Performance",   
+            data: [70,75,80,78,85],
+            borderColor: "#3b82f6",
+            fill: false
+        }]
+    }
+});
+
+new Chart(document.getElementById("chart2"), {
+    type: 'bar',
+    data: {
+        labels: ["Week1","Week2","Week3","Week4"],
+        datasets: [{
+            label: "Attendance",  
+            data: [85,88,90,87],
+            backgroundColor: "#6366f1"
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
