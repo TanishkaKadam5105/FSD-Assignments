@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<!-- Navbar -->
+<div class="navbar">
+
+    <div class="nav-left">
+        <h2>Smart Dashboard</h2>
+    </div>
+    <div class="nav-right">
+        <span class="nav-text">Welcome back, Tanishka</span>
+        <div class="profile">T</div>
+    </div>
+
+</div>
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="analytics.html">Analytics</a></li>
+            <li><a href="student.html">Students</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Smart Analytics Dashboard</h1>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards">
+            <div class="card"> Total Students <h2>1,250</h2></div>
+            <div class="card"> Avg Score <h2>78%</h2></div>
+            <div class="card"> Top Performers <h2>320</h2></div>
+            <div class="card"> Low Scores <h2>120</h2></div>
+        </div>
+
+        <div class="progress-section">
+            <h3>Top Subject Performance</h3>
+            <div class="progress-item">
+                <span>Mathematics</span>
+                <div class="progress-bar">
+                    <div style="width:85%"></div>
+                </div>
+            </div>
+            <div class="progress-item">
+                <span>Science</span>
+                <div class="progress-bar">
+                    <div style="width:78%"></div>
+                </div> 
+            </div>
+            <div class="progress-item">
+                <span>Computer Science</span>
+                <div class="progress-bar">
+                
+                    <div style="width:90%"></div>
+        </div>
+    </div>
+
+</div>
+        <!-- Charts -->
+        <div class="charts">
+
+            <div class="chart-box">
+                <h3> Subject Performance</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3> Monthly Progress</h3>
+                <canvas id="lineChart"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3> Score Distribution</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="footer">
+    <p>© 2026 Smart Analytics Dashboard | All Rights Reserved</p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
