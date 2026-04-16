@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FashionHub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <h2>FashionHub</h2>
+  <input type="text" id="search" placeholder="Search products...">
+  <a href="/feedback">Feedback</a>
+  <a href="cart.html">🛒 Cart</a>
+</nav>
+
+<div class="filters">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('men')">Men</button>
+  <button onclick="filterCategory('women')">Women</button>
+</div>
+
+<div class="product-grid" id="productGrid"></div>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
