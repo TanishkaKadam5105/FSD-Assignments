@@ -1,0 +1,12 @@
+<!DOCTYPE html><html><head><title>Cart</title><link rel='stylesheet' href='style.css'></head><body>
+<header><h1>Your Cart 🛒</h1><nav><a href='shop.html'>⬅ Continue Shopping</a><a href='index.html'>Home</a></nav></header>
+<div id='cartBox' class='cart'></div>
+<script>
+function render(){
+ let cart=JSON.parse(localStorage.getItem('cart')||'[]');
+ let total=0;
+ document.getElementById('cartBox').innerHTML=cart.map((i,idx)=>{total+=i.price;return `<div class='item'><img src='${i.image}'><div><h3>${i.name}</h3><p>₹${i.price}</p><button onclick='removeItem(${idx})'>Remove</button></div></div>`}).join('')+`<h2>Total: ₹${total}</h2>`;
+}
+function removeItem(i){let cart=JSON.parse(localStorage.getItem('cart')||'[]');cart.splice(i,1);localStorage.setItem('cart',JSON.stringify(cart));render();}
+render();
+</script></body></html>
